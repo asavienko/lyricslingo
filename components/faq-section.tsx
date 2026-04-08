@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion"
+import { MusicNotesGraphic, CirclePatternGraphic, SoundWaveDecoration } from "@/components/icons/graphics"
 
 const faqs = [
   {
@@ -28,8 +29,26 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section id="faq" className="py-24 lg:py-32 bg-card">
-      <div className="mx-auto max-w-2xl px-6 lg:px-8">
+    <section id="faq" className="py-24 lg:py-32 bg-card relative overflow-hidden">
+      {/* Background SVG decorations */}
+      <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
+        {/* Top left music notes */}
+        <MusicNotesGraphic className="absolute -top-4 -left-8 w-40 h-28 text-coral/10 rotate-12 animate-float" />
+        
+        {/* Top right circle pattern */}
+        <CirclePatternGraphic className="absolute top-8 -right-6 w-48 h-48 text-lavender/15" />
+        
+        {/* Bottom left sound wave */}
+        <SoundWaveDecoration className="absolute bottom-16 -left-12 w-64 h-20 text-sage/10 -rotate-6" />
+        
+        {/* Bottom right music notes */}
+        <MusicNotesGraphic className="absolute -bottom-2 right-4 w-32 h-24 text-coral/8 -rotate-12 animate-float delay-500" />
+        
+        {/* Center-right circle pattern (subtle) */}
+        <CirclePatternGraphic className="absolute top-1/2 -right-16 w-36 h-36 text-warm-gray/8 -translate-y-1/2" />
+      </div>
+      
+      <div className="mx-auto max-w-2xl px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <p className="text-sm font-medium text-coral tracking-wide uppercase mb-3">FAQ</p>
           <h2 className="font-serif text-3xl sm:text-4xl font-medium tracking-tight text-foreground">
